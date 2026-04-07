@@ -11,7 +11,7 @@ from pptx.util import Inches
 
 
 def count_slides(html: str) -> int:
-    return len(re.findall(r'class="slide\b', html))
+    return len(re.findall(r'<section[^>]*class="[^"]*\bslide\b', html))
 
 
 def chrome_path() -> str:
@@ -31,6 +31,7 @@ def run() -> int:
     parser.add_argument("--height", type=int, default=1080)
     parser.add_argument("--capture-height", type=int, default=1165)
     parser.add_argument("--time-budget", type=int, default=9000)
+    parser.add_argument("--timeout", type=int, default=45)
     args = parser.parse_args()
 
     root = Path(__file__).resolve().parent
@@ -49,6 +50,7 @@ def run() -> int:
     raw_paths: list[Path] = []
     slide_paths: list[Path] = []
     for i in range(1, n + 1):
+        print(f"Render {i}/{n}")
         raw = out_dir / f"raw-{i:02d}.png"
         url = f"{base_url}?export=1&slide={i}"
         subprocess.run(
@@ -63,6 +65,7 @@ def run() -> int:
                 url,
             ],
             check=True,
+            timeout=args.timeout,
             stdout=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL,
         )
@@ -92,4 +95,3 @@ def run() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(run())
-

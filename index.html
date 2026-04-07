@@ -185,6 +185,7 @@ body:hover .cursor-ring,body:hover .cursor-dot{opacity:1;}
   border-image: linear-gradient(var(--angle, 0deg), var(--lemon), var(--lemon-deep), var(--lemon-glow), transparent, transparent) 1;
   animation: border-rotate 6s linear infinite;
 }
+#chi-siamo::after{display:none}
 
 @keyframes border-rotate {
   0% { --angle: 0deg; }
@@ -549,6 +550,14 @@ h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:500;}
 
 /* FridAI LOGO */
 .fridai-logo { display: block; filter: drop-shadow(0 0 20px rgba(0,212,255,0.3)); }
+.lj-logo{display:flex;align-items:center;gap:10px}
+.lj-logo .lj-icon{height:38px;width:38px;object-fit:contain}
+.lj-logo .lj-txt{display:flex;flex-direction:column;line-height:1.1}
+.lj-logo .lj-name{font-size:var(--f-lg);font-weight:700;letter-spacing:1px}
+.lj-logo .lj-sub{font-size:var(--f-xs);font-weight:400;letter-spacing:2px;opacity:.65}
+.lj-logo.lg .lj-icon{height:50px;width:50px}
+.lj-logo.lg .lj-name{font-size:var(--f-2xl)}
+.lj-logo.lg .lj-sub{font-size:var(--f-sm)}
 
 /* ============================================================
    TECH FLOW DIAGRAM — Slide 3
@@ -739,6 +748,10 @@ h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:500;}
 
 <!-- =============== 01 HERO =============== -->
 <section class="slide slide-white hero" id="hero">
+  <div class="lj-logo" style="position:absolute;top:42px;left:56px;z-index:3;color:#0a0a14;">
+    <img class="lj-icon" src="lj_icon.png" alt="LemonJuice Solutions">
+    <div class="lj-txt"><div class="lj-name">LEMONJUICE</div><div class="lj-sub">SOLUTIONS</div></div>
+  </div>
   <!-- VIDEO: parte piccolo in alto a destra, cresce al centro per tutta la durata del video -->
   <div id="heroVidWrap" style="position:absolute;z-index:0;pointer-events:none;width:32vw;height:32vw;top:2%;right:3%;left:auto;opacity:0.15;">
     <video id="heroVid" autoplay muted playsinline preload="auto" style="width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;display:block;">
@@ -793,56 +806,9 @@ h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:500;}
   <div class="slide-hint" style="position:relative;z-index:2;">Premi Invio ↵</div>
 </section>
 
-<!-- =============== 02 DEMO =============== -->
-<section class="slide slide-tono" id="demo">
-  <div class="slide-particles">
-    <span style="left:5%;animation-duration:12s;animation-delay:0s;width:3px;height:3px;"></span>
-    <span style="left:15%;animation-duration:14s;animation-delay:1s;width:4px;height:4px;"></span>
-    <span style="left:22%;animation-duration:16s;animation-delay:2s;width:3px;height:3px;"></span>
-    <span style="left:32%;animation-duration:18s;animation-delay:0.5s;width:4px;height:4px;"></span>
-    <span style="left:42%;animation-duration:15s;animation-delay:1.5s;width:3px;height:3px;"></span>
-    <span style="left:52%;animation-duration:17s;animation-delay:2.5s;width:5px;height:5px;"></span>
-    <span style="left:62%;animation-duration:19s;animation-delay:0.8s;width:3px;height:3px;"></span>
-    <span style="left:72%;animation-duration:13s;animation-delay:1.2s;width:4px;height:4px;"></span>
-    <span style="left:82%;animation-duration:20s;animation-delay:0s;width:3px;height:3px;"></span>
-    <span style="left:92%;animation-duration:15s;animation-delay:2s;width:4px;height:4px;"></span>
-    <span style="left:8%;animation-duration:18s;animation-delay:1.3s;width:3px;height:3px;"></span>
-    <span style="left:28%;animation-duration:16s;animation-delay:0.6s;width:5px;height:5px;"></span>
-  </div>
-  <div class="slide-num">02</div>
-  <div class="slide-inner">
-    <div style="text-align:center;max-width:900px;margin:0 auto;margin-bottom:4rem;">
-      <div class="tag rv" style="text-align:center;">Perché ora</div>
-      <h2 class="rv rv-d1">L'AI da sola non basta.<br>Serve un sistema che <span class="italic lemon">li colleghi e agisca.</span></h2>
-      <p class="body-text rv rv-d2" style="max-width:650px;margin:1.5rem auto 0;color:var(--text-secondary);font-size:1.15rem;">Le aziende hanno dati ovunque ma non riescono a usarli.<br>FridAI è il ponte tra il caos dei sistemi sparsi e l'ordine delle decisioni automatiche.</p>
-    </div>
-    <div class="tech-flow rv rv-d3">
-      <div class="tech-flow-step" style="background:rgba(255,255,255,0.02);">
-        <div class="tech-flow-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg></div>
-        <div class="tech-flow-label" style="font-size:1.4rem; margin-bottom:1rem;">Input</div>
-        <div class="tech-flow-sub" style="font-size:1rem;color:#f4f0eb;">ERP<br>Excel<br>CRM</div>
-      </div>
-      <div class="tech-flow-arrow rv rv-d3">
-        <svg viewBox="0 0 40 12" fill="none" stroke="var(--lemon)" stroke-width="1" opacity="0.4"><line x1="0" y1="6" x2="34" y2="6"/><polyline points="30,2 36,6 30,10"/></svg>
-      </div>
-      <div class="tech-flow-step tech-flow-step-accent" style="z-index:10;">
-        <div class="tech-flow-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--lemon)" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <div class="tech-flow-label" style="font-size:1.8rem; font-family:'DM Serif Display',serif; color:var(--lemon);margin-bottom:0.2rem;">FridAI</div>
-        <div class="tech-flow-sub" style="font-size:0.8rem;">Agentic Data OS</div>
-      </div>
-      <div class="tech-flow-arrow rv rv-d3">
-        <svg viewBox="0 0 40 12" fill="none" stroke="var(--lemon)" stroke-width="1" opacity="0.4"><line x1="0" y1="6" x2="34" y2="6"/><polyline points="30,2 36,6 30,10"/></svg>
-      </div>
-      <div class="tech-flow-step" style="background:rgba(255,255,255,0.02);">
-        <div class="tech-flow-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--lemon-deep)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="21"></line></svg></div>
-        <div class="tech-flow-label" style="font-size:1.4rem; margin-bottom:1rem;">Output</div>
-        <div class="tech-flow-sub" style="font-size:1rem;color:#f4f0eb;">Dashboard<br>Automazioni<br>Alert in tempo reale</div>
-      </div>
-    </div>
-  </div>
-  <div class="slide-hint">Premi Invio ↵</div>
+<!-- =============== 02 CHI SIAMO (AIDRA) =============== -->
+<section class="slide slide-white" id="chi-siamo" style="padding:0;align-items:stretch;justify-content:stretch;">
+  <iframe title="AIDRA — Chi siamo" src="../index.html?export=1&slide=2" style="width:100%;height:100%;border:0;display:block;overflow:hidden;"></iframe>
 </section>
 
 <!-- =============== 03 ARCHITECTURE =============== -->
@@ -977,48 +943,6 @@ h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:500;}
       <div class="card tilt-3d"><div class="card-num" style="color:var(--sand);font-size:3.5rem;font-weight:400;margin-bottom:0.5rem;letter-spacing:-1px;">+5%</div><h3 style="font-size:1.1rem;margin-bottom:0.8rem;">Marginalità</h3><p style="font-size:0.95rem;">Incremento della marginalità grazie all’eliminazione degli errori di pricing e dei markup negativi.</p></div>
       <div class="card tilt-3d"><div class="card-num" style="color:var(--lemon-deep);font-size:3.5rem;font-weight:400;margin-bottom:0.5rem;letter-spacing:-1px;">100%</div><h3 style="font-size:1.1rem;margin-bottom:0.8rem;">Markup commesse controllati</h3><p style="font-size:0.95rem;">Commesse a markup negativo rilevate e bloccate prima dell’avvio produttivo.</p></div>
       <div class="card tilt-3d"><div class="card-num" style="color:var(--lemon-glow);font-size:3.5rem;font-weight:400;margin-bottom:0.5rem;letter-spacing:-1px;">Zero</div><h3 style="font-size:1.1rem;margin-bottom:0.8rem;">Migrazione dati</h3><p style="font-size:0.95rem;">Connessione diretta a ERP, CRM e file Excel senza dover spostare nemmeno un dato.</p></div>
-    </div>
-  </div>
-  <div class="slide-hint">Premi Invio ↵</div>
-</section>
-
-<!-- =============== 05 AIDRA =============== -->
-<section class="slide slide-dark" id="aidra">
-  <div class="slide-particles">
-    <span style="left:5%;animation-duration:12s;animation-delay:0s;width:3px;height:3px;"></span>
-    <span style="left:15%;animation-duration:14s;animation-delay:1s;width:4px;height:4px;"></span>
-    <span style="left:22%;animation-duration:16s;animation-delay:2s;width:3px;height:3px;"></span>
-    <span style="left:32%;animation-duration:18s;animation-delay:0.5s;width:4px;height:4px;"></span>
-    <span style="left:42%;animation-duration:15s;animation-delay:1.5s;width:3px;height:3px;"></span>
-    <span style="left:52%;animation-duration:17s;animation-delay:2.5s;width:5px;height:5px;"></span>
-    <span style="left:62%;animation-duration:19s;animation-delay:0.8s;width:3px;height:3px;"></span>
-    <span style="left:72%;animation-duration:13s;animation-delay:1.2s;width:4px;height:4px;"></span>
-    <span style="left:82%;animation-duration:20s;animation-delay:0s;width:3px;height:3px;"></span>
-    <span style="left:92%;animation-duration:15s;animation-delay:2s;width:4px;height:4px;"></span>
-    <span style="left:8%;animation-duration:18s;animation-delay:1.3s;width:3px;height:3px;"></span>
-    <span style="left:28%;animation-duration:16s;animation-delay:0.6s;width:5px;height:5px;"></span>
-    <span style="left:45%;animation-duration:19s;animation-delay:1.8s;width:3px;height:3px;"></span>
-    <span style="left:65%;animation-duration:14s;animation-delay:2.2s;width:4px;height:4px;"></span>
-    <span style="left:85%;animation-duration:17s;animation-delay:1.1s;width:3px;height:3px;"></span>
-  </div>
-  <div class="slide-num">06</div>
-  <div class="slide-inner">
-    <div class="split-grid">
-      <div>
-        <div class="tag rv">Verticale Fintech</div>
-        <h2 class="rv rv-d1">AIDRA:<br>FridAI per il<br><span class="italic lemon">mondo finanziario.</span></h2>
-        <p class="body-text rv rv-d2" style="margin-top:1.5rem;">AIDRA è il verticale Fintech di FridAI. Stessa architettura, stessi principi — applicati a compliance, risk management, reporting regolamentare, analisi di portafoglio e what-if analysis.</p>
-      </div>
-      <div>
-        <div class="rv3d rv-d3">
-          <div class="data-row"><span class="data-key">Base</span><span class="data-val hl">Architettura FridAI</span></div>
-          <div class="data-row"><span class="data-key">Settore</span><span class="data-val">Financial Services</span></div>
-          <div class="data-row"><span class="data-key">Use case</span><span class="data-val">Compliance, Risk, Reporting, What-if</span></div>
-          <div class="data-row"><span class="data-key">What-if analysis</span><span class="data-val hl">Scenari, stress test, sensibilità</span></div>
-          <div class="data-row"><span class="data-key">Validazione</span><span class="data-val hl">Cross-industry (Quid pilota)</span></div>
-          <div class="data-row"><span class="data-key">Status</span><span class="data-val">In testing — use case attivi</span></div>
-        </div>
-      </div>
     </div>
   </div>
   <div class="slide-hint">Premi Invio ↵</div>
@@ -1184,6 +1108,10 @@ h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:500;}
     <span style="left:85%;animation-duration:17s;animation-delay:1.1s;width:3px;height:3px;"></span>
   </div>
   <div class="slide-inner" style="display:flex;flex-direction:column;align-items:center;">
+    <div class="lj-logo lg rv" style="color:#f4f0eb;margin-bottom:1.6rem;">
+      <img class="lj-icon" src="lj_icon.png" alt="LemonJuice Solutions">
+      <div class="lj-txt"><div class="lj-name">LEMONJUICE</div><div class="lj-sub">SOLUTIONS</div></div>
+    </div>
     <img class="fridai-logo" src="FRIDAI_LOGO_TRANSPARENT.png" alt="FridAI" style="width:120px;margin-bottom:2rem;">
     <h2 class="rv rv-d1" style="text-align:center;">I dati sono ovunque.<br>Noi portiamo l’intelligenza<br><span class="italic lemon">per usarli.</span></h2>
     <p class="body-text rv rv-d2" style="text-align:center;max-width:650px;margin-top:1.5rem;">FridAI rende ogni azienda capace di decisioni insight-driven — senza migrazione, senza lock-in, senza complessità. Dal manifatturiero al finance: la tecnologia giusta, per qualsiasi impresa.</p>
@@ -1680,6 +1608,8 @@ const exportMode=params.get('export')==='1';
 if(exportMode) document.documentElement.classList.add('export');
 const slideParam=parseInt(params.get('slide')||'',10);
 if(Number.isFinite(slideParam) && slideParam>=1 && slideParam<=N) cur=slideParam-1;
+const chiFrame=document.querySelector('#chi-siamo iframe');
+if(exportMode && chiFrame && slideParam!==2) chiFrame.src='about:blank';
 const nav=document.getElementById('nav'),dotsC=document.getElementById('dots'),ctr=document.getElementById('ctr'),prev=document.getElementById('prev'),next=document.getElementById('next'),kb=document.getElementById('kb');
 const heroVid=document.getElementById('heroVid');
 if(exportMode){
