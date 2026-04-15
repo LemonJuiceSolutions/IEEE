@@ -5,6 +5,7 @@ import re
 import subprocess
 from pathlib import Path
 
+import img2pdf
 from PIL import Image
 from pptx import Presentation
 from pptx.util import Inches
@@ -76,9 +77,12 @@ def run() -> int:
         img.save(slide)
         slide_paths.append(slide)
 
-    imgs = [Image.open(p).convert("RGB") for p in slide_paths]
-    pdf_path = root / "IXI.pdf"
-    imgs[0].save(pdf_path.as_posix(), save_all=True, append_images=imgs[1:])
+    pdf_path = root / "IEEE.pdf"
+    pdf_width_pt = 13.333 * 72
+    pdf_height_pt = 7.5 * 72
+    layout_fun = img2pdf.get_layout_fun((pdf_width_pt, pdf_height_pt))
+    with open(pdf_path.as_posix(), "wb") as f:
+        f.write(img2pdf.convert([p.as_posix() for p in slide_paths], layout_fun=layout_fun))
 
     prs = Presentation()
     prs.slide_width = Inches(13.333)
@@ -87,7 +91,7 @@ def run() -> int:
     for p in slide_paths:
         s = prs.slides.add_slide(blank)
         s.shapes.add_picture(p.as_posix(), 0, 0, width=prs.slide_width, height=prs.slide_height)
-    pptx_path = root / "IXI.pptx"
+    pptx_path = root / "IEEE.pptx"
     prs.save(pptx_path.as_posix())
 
     return 0
